@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+	<html>
+<head lang="en">
+		<meta charset="UTF-8">
+		<title>二维码管理</title>
+		<link rel="stylesheet" type="text/css" href="http://static.biz.social-touch.com/mosh/css/common/base.css?js_version=1.0017">
+		<link rel="stylesheet" type="text/css" href="http://static.biz.social-touch.com/mosh/css/common/home.css?js_version=1.0017">
+		<link rel="stylesheet" type="text/css" href="http://static.biz.social-touch.com/mosh/css/common/QR-code.css?js_version=1.0017">
+		<link rel="stylesheet" type="text/css" href="http://static.biz.social-touch.com/mosh/css/common/source/material.css?js_version=1.0017">
+		<link rel="stylesheet" type="text/css" href="http://static.biz.social-touch.com/mosh/css/common/reply.css?js_version=1.0017">
+		<link rel="stylesheet" type="text/css" href="http://static.biz.social-touch.com/mosh/css/common/gzAttention_w.css?js_version=1.0017"></head>
+<body>
+		<div id="client-switch-header" class="client-head-bg">
+			<div class="f_r pos_r">
+				<a href="javascript:;">当前管理账号</a>
+				<div class="switch-select f_r">
+					<div class="f_r pos_r switch-box">
+						<span style="display:block;float:left">
+							<a href="javascript:;" class="account"></a>
+							<a href="javascript:;" class="head-portrait">
+								<img src="http://pinqu.tp.shiqutech.com/1589d40f0cd797aa5c39289bf79423c7?imageView/1/w/200/h/200" width="26px" height="26px" alt=""></a>
+							<a href="javascript:;" class="pr30">
+								时趣营销 <b>认证服务号</b>
+							</a>
+						</span>
+
+						<a href="javascript:;" onclick="var node=this.parentNode.parentNode.querySelector('ul.switch-ul');var state=node.style.display=='none';node.style.display=state?'':'none'; this.style.transform='rotate(90deg)';" class="grayBtn select-head-btn mtr10">
+							<input type="hidden" name="selectname" value=""></a>
+					</div>
+					<ul class="switch-ul" style="display:none">
+						<li data-value="1">
+							<a href="javascript:;" class="account"></a>
+							<a href="javascript:;" class="head-portrait">
+								<img src="http://pinqu.tp.shiqutech.com/1589d40f0cd797aa5c39289bf79423c7?imageView/1/w/200/h/200" width="26px" height="26px" alt=""></a>
+							<a href="javascript:void(0);" onclick="parent.location='http://biz.social-touch.com//?wx_id=535'" class="pr30">
+								时趣营销 <b>认证服务号</b>
+							</a>
+						</li>
+						<li data-value="1">
+							<a href="javascript:;" class="account"></a>
+							<a href="javascript:;" class="head-portrait">
+								<img src="http://pinqu.tp.shiqutech.com/bd53b8f96e6f8941d1908230fd44a864?imageView/1/w/200/h/200" width="26px" height="26px" alt=""></a>
+							<a href="javascript:void(0);" onclick="parent.location='http://biz.social-touch.com//?wx_id=449'" class="pr30">
+								时趣全员营销产
+								<b>认证服务号</b>
+							</a>
+						</li>
+						<li data-value="1">
+							<a href="javascript:;" class="account"></a>
+							<a href="javascript:;" class="head-portrait">
+								<img src="http://pinqu.tp.shiqutech.com/ac0381e549b268c903e773ca5da6d7ad?imageView/1/w/200/h/200" width="26px" height="26px" alt=""></a>
+							<a href="javascript:void(0);" onclick="parent.location='http://biz.social-touch.com//?wx_id=555'" class="pr30">
+								美食大全
+								<b>未认证</b>
+							</a>
+						</li>
+						<li data-value="1">
+							<a href="javascript:;" class="account"></a>
+							<a href="javascript:;" class="head-portrait">
+								<img src="http://pinqu.tp.shiqutech.com/e7b21707914ebf5d641b848922f321a6?imageView/1/w/200/h/200" width="26px" height="26px" alt=""></a>
+							<a href="javascript:void(0);" onclick="parent.location='http://biz.social-touch.com//?wx_id=600'" class="pr30">
+								时趣互动微生活
+								<b>认证服务号</b>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--客服管理-->
+		<div class="c-main-ct fix">
+			<div class="box-container fix">
+				<div class="d-head fix">
+					<a class="d-head-addbtn" href="/qrcode/admin/index">返回</a>
+				</div>
+				<form action="/qrcode/admin/add" id="codeAdd" method="post">
+					<table width="100%" class="form-table">
+						<tbody>
+							<tr>
+								<th align="right" width="10%"> <em>*</em>
+									过期类型：
+								</th>
+								<td align="left" width="20%">
+									<input type="radio" flag="0" checked="checked" name="is_per" class="rd" id="radio-1" value="Y">
+									<label class="color666" for="radio-1">永久有效</label>
+									(总数不超过10万个)
+								</td>
+								<td align="left" width="70%">
+									<input type="radio" flag="1" name="is_per" id="is_per" class="rd" value="N">
+									<label class="color666" for="radio-2">临时有效</label> <em>(数量不限，有效期最长30分钟)</em>
+								</td>
+							</tr>
+							<tr class="r_row" style="display:none">
+								<th align="right">有效时间：</th>
+								<td colspan="2">
+									<div class="s-select" style="position: relative; z-index: 49;">
+										<span class="color666">
+											<em id="effecttime">请选择分类</em> <i><input type="hidden" name="selectname" value=""></i>
+										</span>
+										<dl style="position: absolute; width: 118px; left: 0px; top: 30px; height: 144px; overflow: auto;">
+											<dd data-value="30">
+												<em>30</em>
+											</dd>
+											<dd data-value="25">
+												<em>25</em>
+											</dd>
+											<dd data-value="20">
+												<em>20</em>
+											</dd>
+											<dd data-value="15">
+												<em>15</em>
+											</dd>
+											<dd data-value="10">
+												<em>10</em>
+											</dd>
+											<dd data-value="5">
+												<em>5</em>
+											</dd>
+										</dl>
+									</div>
+									<span class="text  color666">分钟</span>
+									<span class="text color999">生成二维码后不可修改</span>
+								</td>
+							</tr>
+							<tr>
+								<th align="right">
+									<em>*</em>
+									二维码名称：
+								</th>
+								<td colspan="2">
+									<input type="text" id="code_name" value="" max_length="40" placeholder="最多可输入20个字" name="code_name" class="textInput w270"></td>
+							</tr>
+							<tr>
+								<th align="right" valign="top">投放备注：</th>
+								<td colspan="2">
+									<textarea style="width:270px;" id="remark" max_length="200" placeholder="最多可输入100个字" name="remark" class="textareaInput"></textarea>
+								</td>
+							</tr>
+							<tr>
+								<th align="right" valign="top">
+									<em>*</em>
+									自动回复内容：
+								</th>
+								<td colspan="2">
+
+									<div class="tabLabel" id="tabLabel_w">
+										<label class="color666">
+											<input type="radio" checked="checked" class="PQ_Radio" name="reply_type" value="T">文本</label>
+										<label class="color666">
+											<input type="radio" class="PQ_Radio" name="reply_type" value="V">图文</label>
+										<label class="color666">
+											<input type="radio" class="PQ_Radio" name="reply_type" value="N">不回复内容</label>
+									</div>
+									<div id="tabCont_w">
+										<!-- 文字 -->
+										<div class="textArea" style="width: 620px; height: 245px; z-index: 49; display: none;" id="Smohan_FaceBox">
+											<div id="SmohanFaceBox" style="display: none;">
+												<span class="Corner"></span>
+												<div class="Content">
+													<h3>
+														<span>常用表情</span>
+														<a class="close" title="关闭"></a>
+													</h3>
+													<ul>
+														<li>
+															<a onclick="javascript:void(0);" title="[微笑]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/0.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[撇嘴]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/1.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[色]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/2.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[发呆]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/3.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[得意]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/4.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[流泪]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/5.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[害羞]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/6.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[闭嘴]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/7.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[睡]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/8.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[大哭]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/9.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[尴尬]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/10.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[发怒]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/11.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[调皮]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/12.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[呲牙]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/13.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[惊讶]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/14.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[难过]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/15.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[酷]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/16.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[冷汗]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/17.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[抓狂]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/18.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[吐]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/19.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[偷笑]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/20.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[愉快]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/21.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[白眼]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/22.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[傲慢]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/23.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[饥饿]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/24.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[困]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/25.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[惊恐]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/26.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[流汗]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/27.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[憨笑]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/28.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[悠闲]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/29.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[奋斗]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/30.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[咒骂]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/31.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[疑问]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/32.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[嘘]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/33.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[晕]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/34.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[疯了]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/35.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[衰]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/36.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[骷髅]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/37.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[敲打]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/38.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[再见]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/39.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[擦汗]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/40.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[抠鼻]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/41.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[鼓掌]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/42.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[糗大了]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/43.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[坏笑]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/44.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[左哼哼]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/45.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[右哼哼]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/46.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[哈欠]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/47.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[鄙视]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/48.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[委屈]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/49.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[快哭了]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/50.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[阴险]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/51.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[亲亲]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/52.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[吓]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/53.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[可怜]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/54.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[菜刀]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/55.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[西瓜]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/56.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[啤酒]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/57.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[篮球]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/58.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[乒乓]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/59.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[咖啡]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/60.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[饭]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/61.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[猪头]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/62.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[玫瑰]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/63.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[凋谢]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/64.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[嘴唇]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/65.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[爱心]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/66.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[心碎]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/67.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[蛋糕]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/68.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[闪电]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/69.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[炸弹]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/70.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[刀]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/71.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[足球]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/72.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[瓢虫]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/73.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[便便]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/74.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[月亮]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/75.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[太阳]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/76.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[礼物]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/77.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[拥抱]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/78.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[强]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/79.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[弱]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/80.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[握手]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/81.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[胜利]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/82.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[抱拳]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/83.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[勾引]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/84.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[拳头]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/85.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[差劲]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/86.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[爱你]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/87.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[NO]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/88.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[OK]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/89.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[爱情]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/90.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[飞吻]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/91.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[跳跳]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/92.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[发抖]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/93.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[怄火]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/94.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[转圈]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/95.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[磕头]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/96.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[回头]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/97.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[跳绳]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/98.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[投降]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/99.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[激动]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/100.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[献吻]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/102.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[左太极]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/103.gif"></a>
+														</li>
+														<li>
+															<a onclick="javascript:void(0);" title="[右太极]" href="javascript:void(0);">
+																<img src="https://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/104.gif"></a>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<textarea name="textArea" id="Smohan_text" class="smohan_text" maxlen="600"></textarea>
+											<button class="button" id="Smohan_Showface" style="display:none;">显示表情</button>
+											<div class="textarea-infro">
+												<a href="javascript:;" class="add-face">表情</a>
+												<a href="javascript:;" class="add-link">添加链接</a>
+												<span class="f_r numWord mr10 color999">
+													最多可输入 <strong>600</strong>
+													个字
+												</span>
+											</div>
+										</div>
+										<!-- 图文 wxx 2015/1/8-->
+										<div class="l_w_gzImgWen" style="display: block;">
+											<a class="PQ_Btn grayBtn l_w_btnWid88 j_w_gzImgWen" tempurl="/material/admin/MaterialNew" href="javascript:" id="addgzImgWen">+选择图文</a>
+											<div class="m_w_gzImgWen pt10" id="new_material">
+												<div class="m_w_gzImgWen_weixz">
+													<span class="pdt149">未选择</span>
+												</div>
+											</div>
+										</div>
+										<input type="hidden" value="" id="reply_id"></div>
+								</td>
+							</tr>
+							<tr></tr>
+							<tr>
+								<th align="right">用户分组：</th>
+								<td colspan="2">
+									<div class="s-select" style="position: relative; z-index: 48;">
+										<span class="color666">
+											<em>不使用</em> <i><input id="groupid" type="hidden" name="groupname" value="-1"></i>
+										</span>
+										<dl style="position: absolute; width: 118px; left: 0px; top: 30px; height: 144px; overflow: auto;">
+											<dd data-value="-1">
+												<em>不使用</em>
+											</dd>
+											<dd data-value="0">
+												<em>未分组</em>
+											</dd>
+											<dd data-value="1">
+												<em>黑名单</em>
+											</dd>
+											<dd data-value="2">
+												<em>星标组</em>
+											</dd>
+											<dd data-value="3233">
+												<em>e</em>
+											</dd>
+											<dd data-value="3234">
+												<em>晓晓分组我</em>
+											</dd>
+											<dd data-value="3235">
+												<em>大数据</em>
+											</dd>
+											<dd data-value="3236">
+												<em>34</em>
+											</dd>
+											<dd data-value="3237">
+												<em>1</em>
+											</dd>
+											<dd data-value="3238">
+												<em>员工</em>
+											</dd>
+											<dd data-value="3239">
+												<em>token测试组</em>
+											</dd>
+											<dd data-value="3583">
+												<em>迭代</em>
+											</dd>
+											<dd data-value="3596">
+												<em>ffds</em>
+											</dd>
+											<dd data-value="3597">
+												<em>添加数据</em>
+											</dd>
+										</dl>
+									</div>
+									<span class="text">用户关注后，扫描该二维码的用户会自动被分组</span>
+								</td>
+							</tr>
+							<tr>
+								<th align="right">用户标签：</th>
+								<td colspan="2">
+									<!--<a href="javascript:" class="social-btn-gray">+选择标签</a>
+								<span class="text">用户关注后，扫描该二维码的用户会自动获得用户标签</span>
+								-->
+								<a class="PQ_Btn grayBtn addKeyTag" tempurl="/qrcode/admin/tag" href="javascript:;">+选择标签</a>
+								<span class="explain ml10">用户关注后，输入该关键词的用户会自动被打上标签</span>
+								<ul class="key-word fix pt5" id="add-key-word"></ul>
+								<input type="hidden" name="tagsid" value="" id="tags-arrid"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td colspan="2">
+								<a href="javascript:" class="social-btn-green saveTxt" onclick="subCode()">保存</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<input type="hidden" id="code_id" value=""></form>
+		</div>
+
+		<script>var BASE_URL = 'http://static.biz.social-touch.com/mosh/';</script>
+		<!-- BEGIN JAVASCRIPT -->
+		<script src="http://static.biz.social-touch.com/mosh/js/common/seajs-2.3.0/sea.js?js_version=1.0017"></script>
+		<script src="http://static.biz.social-touch.com/mosh/js/common/seajs-preload1.0.0/seajs-preload.js?js_version=1.0017"></script>
+		<script src="http://static.biz.social-touch.com/mosh/js/common/config.js?js_version=1.0017"></script>
+		<script>seajs.use('qrcode',function (){}); </script>
+		<!-- END JAVASCRIPT -->
+
+		<script>
+  function subCode(){
+     var is_per = $('input[name="is_per"]:checked').val();
+     var reply_type = $('input[name="reply_type"]:checked').val();
+     var effecttime = '';
+     if(is_per == "N"){
+        effecttime = $("#effecttime").html();
+     }
+     var code_name = $("#code_name").val();
+     if(code_name == ""){
+        seajs.use('pop',function ($pop){
+             $pop.topAlert('请输入二维码名称');
+        }); 
+        return false;
+     }
+     var remark = $("#remark").val();
+     if(reply_type == "T"){
+         var reply_id = encodeURI($("#Smohan_text").val());
+         var content = $("#Smohan_text").val();
+        //汉字
+        var str = (content.replace(/\w/g,"")).length;
+        //非汉字
+        var abcnum = content.length-str;
+        var total = str*2+abcnum;
+        if (total > 1200) {
+            seajs.use('pop',function ($pop){
+                 $pop.topAlert('回复内容长度超过限制');
+            }); 
+            return false;
+        }
+     }else{
+        var reply_id = $("#new_material div").attr("data-value");
+     }
+     var groupid = $("#groupid").val();
+     var keyTag   = new Array();
+     var tagsid = '';//$("#tags-arrid").val();
+    $("#add-key-word li a").each(function() {
+        keyTag.push($(this).html()); 
+    });
+    tagsid = keyTag.join(",");
+    
+     var codeid = $("#code_id").val();
+     // ajax 提交
+     $.ajax({
+url: "/qrcode/admin/add",
+type: 'POST',
+data:{dataPost:'TRUE',code_id:codeid,is_per:is_per,effecttime:effecttime,code_name:code_name,remark:remark,reply_type:reply_type,reply_id:reply_id,group_id:groupid,tags:tagsid},
+dataType: 'json',
+success:function(json){
+                if(json.code == 200){
+                    seajs.use('pop',function ($pop){
+                         $pop.topAlert("保存成功");
+                         setTimeout(function() {
+                            window.location.href="/qrcode/admin/index";
+                         }, 1000);
+                    }); 
+                 //alert('保存成功');
+                    
+                }else {
+                    seajs.use('pop',function ($pop){
+                         $pop.topAlert(json.message);
+                    }); 
+                    return false;
+                }
+}
+});
+    //alert(code_name);alert(remark);alert(content);alert(reply_id);alert(groupid);alert(tagsid);
+    /*
+     
+     alert(is_per);alert(effecttime);alert(code_name);alert(remark);alert(content);alert(raply_id);alert(groupid);alert(tags-arrid);
+     */
+  }
+</script>
+<div id="l-pop-window" class="l-tcnewbox kehuPop" style="width: 500px; height: 428px; z-index: 59; position: fixed; left: 50%; margin-left: -250px; top: 119.5px;">
+	<div class="l-tcnewtop">
+		<h2 class="l-tcnewtit">选择图文</h2>
+		<a href="javascript:" class="l-close l-pop-close">×</a>
+		<div class="l-error"></div>
+	</div>
+	<div class="l-tcnewbd">
+		<div class="c-alert-default-con l_w_IWcont" id="imgword-pop">
+			<div class="m_w_iwCont_Top">
+				<div class="f_l">
+					<p class="f_l">素材分类：</p>
+					<div class="s-select m_w_selectWid120" style="position: relative; z-index: 47;">
+						<span> <em>请选择分类</em> <i><input type="hidden" name="selectname" value="-1"></i>
+						</span>
+						<dl style="position: absolute; width: 118px; left: 0px; top: 30px; height: 144px; overflow: auto;">
+							<dd data-value="-1"> <em>请选择分类</em>
+							</dd>
+							<dd data-value="0">
+								<em>未分组</em>
+							</dd>
+							<dd data-value="762">
+								<em>删除</em>
+							</dd>
+							<dd data-value="757">
+								<em>19</em>
+							</dd>
+							<dd data-value="756">
+								<em>18</em>
+							</dd>
+							<dd data-value="755">
+								<em>17</em>
+							</dd>
+							<dd data-value="754">
+								<em>16</em>
+							</dd>
+							<dd data-value="753">
+								<em>15</em>
+							</dd>
+							<dd data-value="750">
+								<em>14</em>
+							</dd>
+							<dd data-value="749">
+								<em>13</em>
+							</dd>
+							<dd data-value="747">
+								<em>12</em>
+							</dd>
+							<dd data-value="745">
+								<em>00</em>
+							</dd>
+							<dd data-value="743">
+								<em>8</em>
+							</dd>
+							<dd data-value="740">
+								<em>5</em>
+							</dd>
+							<dd data-value="737">
+								<em>sucai</em>
+							</dd>
+							<dd data-value="735">
+								<em>khk</em>
+							</dd>
+							<dd data-value="719">
+								<em>项目组</em>
+							</dd>
+							<dd data-value="718">
+								<em>活动</em>
+							</dd>
+						</dl>
+					</div>
+				</div>
+				<div class="f_r">
+					<input type="text" class=" pq_ipt c_w_inputhg28 j_w_inputhg28" name="keywords" placeholder="搜索图文标题" value="" maxlength="10">
+					<a class="PQ_Btn search" href="javascript:;">搜索</a>
+				</div>
+			</div>
+			<div class="l_w_iwTab" style="">
+				<table width="100%">
+					<thead>
+						<tr>
+							<th style="width:50%">图文标题</th>
+							<th style="width:30%">图文类型</th>
+							<th style="width:20%">添加日期</th>
+						</tr>
+					</thead>
+					<tbody id="material_new">
+						<tr>
+							<td>
+								<label>
+									<input type="radio" class="" name="radioiw" material_id="32989" checked="checked">ww</label>
+							</td>
+							<td>单图文</td>
+							<td>2016-04-01</td>
+						</tr>
+						<tr>
+							<td>
+								<label>
+									<input type="radio" class="" name="radioiw" material_id="32962">化妆</label>
+							</td>
+							<td>单图文</td>
+							<td>2016-03-31</td>
+						</tr>
+						<tr>
+							<td>
+								<label>
+									<input type="radio" class="" name="radioiw" material_id="32961">g</label>
+							</td>
+							<td>单图文</td>
+							<td>2016-03-31</td>
+						</tr>
+						<tr>
+							<td>
+								<label>
+									<input type="radio" class="" name="radioiw" material_id="32960">大高加索</label>
+							</td>
+							<td>多图文</td>
+							<td>2016-03-31</td>
+						</tr>
+						<tr>
+							<td>
+								<label>
+									<input type="radio" class="" name="radioiw" material_id="32959">hhhhhhhhhhh555555</label>
+							</td>
+							<td>单图文</td>
+							<td>2016-03-31</td>
+						</tr>
+						<tr>
+							<td>
+								<label>
+									<input type="radio" class="" name="radioiw" material_id="32958">nihao</label>
+							</td>
+							<td>单图文</td>
+							<td>2016-03-31</td>
+						</tr>
+						<tr>
+							<td>
+								<label>
+									<input type="radio" class="" name="radioiw" material_id="32937">index</label>
+							</td>
+							<td>单图文</td>
+							<td>2016-03-31</td>
+						</tr>
+						<tr>
+							<td>
+								<label>
+									<input type="radio" class="" name="radioiw" material_id="32907">光伏发电</label>
+							</td>
+							<td>多图文</td>
+							<td>2016-03-31</td>
+						</tr>
+						<tr>
+							<td>
+								<label>
+									<input type="radio" class="" name="radioiw" material_id="32901">hhh</label>
+							</td>
+							<td>单图文</td>
+							<td>2016-03-31</td>
+						</tr>
+						<tr>
+							<td>
+								<label>
+									<input type="radio" class="" name="radioiw" material_id="32899">333333</label>
+							</td>
+							<td>多图文</td>
+							<td>2016-03-31</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<div class="l_w_iwBtn">
+				<a class="social-btn-green confirm" href="javascript:;">确定</a>
+				<a class="social-btn-gray marlf22 cancel" href="javascript:">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+	</html>

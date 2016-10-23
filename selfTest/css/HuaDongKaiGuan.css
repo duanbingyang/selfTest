@@ -1,0 +1,62 @@
+.check-input{
+  margin: 0px 0px 0px 25px;
+    border-bottom: 1px solid #ddd;
+    height: 87px;
+    line-height: 87px;
+    font-size: 26pt;
+}
+.check-input em{
+  color: #666;
+    width: 225px;
+    display: inline-block;
+}
+.switch {
+	margin:13px 30px 0 0; 
+  	position: relative;
+}
+.switch label {
+  	width: 100%;
+  	height: 100%;
+  	position: relative;
+  	display: block;
+}
+.switch input {
+  	top: 0; 
+  	right: 0; 
+  	bottom: 0; 
+  	left: 0;
+  	opacity: 0;
+  	z-index: 100;
+  	position: absolute;
+  	width: 100%;
+  	height: 100%;
+  	cursor: pointer;
+}
+.switch.demo3 {
+  	width: 102px;
+  	height: 62px;
+}
+.switch.demo3 label {
+  	display: block;
+  	width: 100%;
+  	height: 100%;
+  	background: #e5e5e5;
+  	border-radius: 45px; 
+}
+.switch.demo3 label i {
+  	display: block;
+  	height: 56px;
+  	width: 56px;
+  	position: absolute;
+  	z-index: 2;
+  	right: 43px;
+  	top: 3px;
+  	background: #fff;
+  	border-radius: 45px;
+}
+.switch.demo3 input:checked ~ label {
+  	background: #0ebeac;
+}
+.switch.demo3 input:checked ~ label i {
+  	right: 3px;
+}

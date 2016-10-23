@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+	<title>alert</title>
+	<style>
+		.qtwo-tchxa{ 
+			background-color:#fff; 
+			margin:25% 6% 0 6%; 
+			text-align:center; 
+			padding:4%;
+			-moz-border-radius:5px;
+			-webkit-border-radius:5px;
+			border-radius:5px;
+		}
+		.qtwo-abutom {
+		    display: block;
+		    width: 90%;
+		    font-size: 1.5em;
+		    padding: 1.6%;
+		    color: #fff;
+		    background-color: #D82618;
+		    margin: 0 auto;
+		    background-image: -webkit-gradient(linear,left top,left bottom,from(#FF7600),to(#FF5A00));
+		    background-image: -webkit-linear-gradient(#FF7600,#FF5A00);
+		    background-image: -moz-linear-gradient(#FF7600,#FF5A00);
+		    background-image: -ms-linear-gradient(#FF7600,#FF5A00);
+		    background-image: -o-linear-gradient(#FF7600,#FF5A00);
+		    background-image: linear-gradient(#FF7600,#FF5A00);
+		    -moz-border-radius: 5px;
+		    -webkit-border-radius: 5px;
+		    border-radius: 5px;
+		}
+		.qtwo-tanchu {
+		    position: fixed;
+		    top: 0px;
+		    width: 100%;
+		    height: 100%;
+		    z-index: 9999;
+		    background-color:rgba(102,102,102,0.3);
+		    background-position: center top;
+		    background-repeat: repeat;
+		}
+	</style>
+</head>
+<body>
+	<div id="ajax_msg_view" class="qtwo-tanchu" style="display:block;">
+		<div id="cj_sys_msg" class="qtwo-tchxa" style=" display:blcok">
+			<p class="qtwo-tupian">
+				系统提示
+			</p>
+			<p  style="margin:15px 0px 15px 0px;">
+				<span id="sys_msg_txt" >这个弹框主要看.qtwo-tanchu，其他都可以随意</span>
+			</p>
+			<p>
+				<a id="sys_msg_close" href="javascript:void(0);" class="qtwo-abutom">确认</a>
+			</p>
+		</div>
+	</div>
+</body>
+</html>
+
+

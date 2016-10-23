@@ -1,0 +1,136 @@
+@charset "UTF-8";
+body{
+	background-color: #333333;
+}
+.blogTop{
+	background-color: #222;
+	border-bottom: #464647 1px solid;
+	height:86px;
+}
+.blogTop .logo{
+	float:left;
+}
+.blogTop .logo img{
+	width: 175px;
+	height:68px; 
+	margin-left: 20px;
+	margin-top: 9px;
+}
+.blogTop .navigation{
+	float: right;
+	margin-right: 16px;
+}
+.blogTop .navigation li{
+	float: left;
+	font-size: 20px;
+	height:86px;
+}
+.blogTop .navigation li:hover{
+	background-color: #151515;
+}
+.blogTop .navigation li a{
+	color:#FFF;
+	height:86px;
+	display: inline-block;
+	line-height: 86px;
+	padding: 0 10px;
+	width:100px;
+	text-align: center;
+}
+.blogTop .navigation li:hover a{
+	color:#CC8181;
+	border-bottom: 2px solid #CC8181;
+	height:86px;
+	line-height:86px;
+}
+.blogBody{
+	height:100%;
+	position: relative;
+	top:0;
+	bottom:0;
+	padding-bottom: 40px;
+}
+.blogBody .partingLine{
+	width:2px;
+	background-color: #000;
+	position: absolute;
+	top: 20px;
+	bottom:20px;
+	left:71%;
+}
+.blogBody .partingLine:hover{
+	box-shadow: 0px 0px 8px #4D4D4D;
+	background-color: #8B8B8B;
+
+}
+.blogcontent{
+	width:71%;
+	position: relative;
+}
+.blogcontent .rightSpeak{
+	display:inline-block;
+	width:0; 
+    height:0; 
+    border-bottom: 25px solid transparent;
+    border-left: 25px solid #181818;
+    position: relative;
+    top: 95px;
+    left: 95%;
+}
+.blogcontent .timeSign{
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    background-color: #000;
+    border-radius: 20px;
+    border: 2px solid #333;
+    top: 86px;
+    right: -11px;
+}
+.blogcontent .timeSign:hover{
+	border:2px solid #D3D3D3;
+}
+.blogBody .content{
+	display:inline-block;
+	background-color: #222;
+	width:86%;
+	margin-left: 9%;
+	margin-top: 50px;
+	border-radius: 10px;
+	box-shadow: 0px 1px 0px rgba(255,255,255,.1), inset 0px 1px 1px rgba(0,0,0,.7);
+}
+.blogBody .content h3{
+	font-size: 18px;
+	height:20px;
+	margin:20px;
+	display:inline-block;
+}
+.blogBody .content h3 a{
+	color:#666666;
+}
+.blogBody .content h3 a:hover{
+	color:#E5E5E5;
+}
+.blogBody .content img{
+	width:200px;
+	height:122px;
+	margin-left: 4%;
+	margin-bottom: 3%;
+}
+.blogBody .content p{
+	width: 64%;
+    float: right;
+    margin-right: 4%;
+    font-size: 15px;
+    color:#D8D8D8;
+    line-height: 24px;
+}
+
+.blogBody .content .bottom{
+	padding: 5px 20px;
+	text-align: right;
+	background-color: #181818;
+	border-radius: 0 0 10px 10px;
+	font-size: 10px;
+	
+}

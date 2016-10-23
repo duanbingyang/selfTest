@@ -1,0 +1,173 @@
+option = {
+    title: {
+        text: '折线图堆叠'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        // data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+        backgroundColor:'rgb(34,40,54)',
+        data: [
+            {
+                name: '邮件营销',
+                textStyle: {
+                    color: '#2FAEF3'
+                }
+            },
+            {
+                name: '联盟广告',
+                textStyle: {
+                    color: '#01E06E'
+                }
+            },
+            {
+                name: '视频广告',
+                textStyle: {
+                    color: '#FACE2F'
+                }
+            }
+        ]
+    },
+    backgroundColor:'rgb(34,40,54)',
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true,
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        // data: ['周一','周二','周三','周四','周五','周六','周日'],
+        data: [{
+            value: '周一',
+            textStyle: {
+                fontSize: 20,
+                color: '#707279'
+            }
+        },
+        {
+            value: '周二',
+            textStyle: {
+                fontSize: 20,
+                color: '#707279'
+            }
+        },
+        {
+            value: '周三',
+            textStyle: {
+                fontSize: 20,
+                color: '#707279'
+            }
+        },
+        {
+            value: '周四',
+            textStyle: {
+                fontSize: 20,
+                color: '#707279'
+            }
+        },
+        {
+            value: '周五',
+            textStyle: {
+                fontSize: 20,
+                color: '#707279'
+            }
+        },
+        {
+            value: '周六',
+            textStyle: {
+                fontSize: 20,
+                color: '#707279'
+            }
+        },
+        {
+            value: '周日',
+            textStyle: {
+                fontSize: 20,
+                color: '#707279'
+            }
+        }],
+        splitLine: {
+            lineStyle: {
+                color: ['#383C46']
+            }
+        }
+    },
+    yAxis: {
+        type: 'value',
+        splitLine: {
+            lineStyle: {
+                color: ['#383C46']
+            }
+        },
+        axisLabel:{
+            textStyle:{
+                color:'#707279'
+            }
+        }
+    },
+    series: [
+        {
+            name:'邮件营销',
+            type:'line',
+            stack: '总量',
+            lineStyle:{
+                normal:{
+                    color:'#2EAEF6'
+                }
+            },
+            symbol:'circle',
+            symbolSize:'8',
+            itemStyle : {
+				normal : {
+                color:'#2EAEF6'
+				}
+            },
+            data:[120, 132, 101, 134, 90, 230, 210]
+        },
+        {
+            name:'联盟广告',
+            type:'line',
+            stack: '总量',
+            lineStyle:{
+                normal:{
+                    color:'#01E06D',
+                    borderWidth:'20'
+                }
+            },
+            symbol:'circle',
+            symbolSize:'8',
+            itemStyle : {
+				normal : {
+                color:'#01E06D'
+				}
+            },
+            data:[220, 182, 191, 234, 290, 330, 310]
+        },
+        {
+            name:'视频广告',
+            type:'line',
+            stack: '总量',
+            lineStyle:{
+                normal:{
+                    color:'#F8CD30'
+                }
+            },
+            symbol:'circle',
+            symbolSize:'8',
+            itemStyle : {
+				normal : {
+                color:'#F8CD30'
+				}
+            },
+            data:[150, 232, 201, 154, 190, 330, 410]
+        }
+    ]
+};

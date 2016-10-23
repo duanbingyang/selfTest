@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>摇号</title>
+	<script>
+	window.onload = function(){
+		var oBtn = document.getElementById("btn1");
+		var a = ["丁磊" ,"李潇雨" ,"王晓暄" ,"段冰洋" ,"候东东" ,"魏家鲁" ,"尹凯"];
+		var b = [];
+		oBtn.onclick = function(){
+			if(a.length==0){
+				a=b;
+				b = [];
+			}
+			var i = Math.random()*(a.length-1);
+			i = Math.round(i);
+			b.push(a[i]);
+			a.splice(i,1);
+		}
+	}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn1" value="来一发" />
+</body>
+</html>

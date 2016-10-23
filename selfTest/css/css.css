@@ -1,0 +1,21 @@
+@charset "UTF-8";
+body{
+	margin: 0;
+	padding: 0;
+}
+.qtwo-tanchu{
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background-image:url(../img/background_img.png);
+	background-position: center top;
+	background-repeat: repeat;
+}
+.onclick{
+	padding: 200px auto;
+	margin: 20% 30%;
+	width: 40%;
+	
+}

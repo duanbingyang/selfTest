@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>innerHtml</title>
+	<style>
+		#div1{
+			width: 200px;
+			height: 200px;
+			background-color: #999;
+		}
+	</style>
+</head>
+<script>
+	window.onload = function(){
+		var oDiv = document.getElementById('div1');
+		var oSpan = document.getElementById('span1');
+		var oText = document.getElementById('text1');
+		var oButton = document.getElementById('button1');
+		oButton.onclick = function(){
+			oDiv.innerHTML += oSpan.innerHTML + oText.value + '<br />';
+			oText.value = '';
+		}
+	}
+</script>
+<body>
+	<div id = "div1"></div>
+	<span id = "span1">妙味：</span>
+	<input type="text" value="" id = "text1"/>
+	<input type="button" value="提交" id = "button1">
+
+</body>
+</html>

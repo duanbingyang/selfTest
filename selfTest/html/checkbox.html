@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>checkbox</title>
+</head>
+<body>
+<div class="row-fluid offset1">
+	<div class="span2 title">量贩购：</div>
+	<span>
+		<input id="deal_info_hypermarket_1" name="deal_info[hypermarket]" type="radio" value="1">是
+		&nbsp;&nbsp;&nbsp;
+		<input checked="checked" id="deal_info_hypermarket_0" name="deal_info[hypermarket]" type="radio" value="0">否
+	</span>
+</div>
+<div class="row-fluid offset1">
+	<div class="span2 title" style="color:red;">需抽检购买：</div>
+	<span>
+		<input id="mark_to_buy_sample_yes" name="mark_to_buy_sample" style="display:inline" type="radio" value="yes">
+		<label for="mark_to_buy_sample_yes" style="display:inline">是</label>
+		&nbsp;&nbsp;
+		<input checked="checked" id="mark_to_buy_sample_no" name="mark_to_buy_sample" style="display:inline" type="radio" value="no">
+		<label for="mark_to_buy_sample_no" style="display:inline">否</label>
+	</span>
+</div>
+<div class="row-fluid offset1">
+	<div class="span2 title">特殊商品</div>
+	<span id="set_special_radio">
+		<input id="putongDeal" name="deal[special_deal_type]" style="display:inline;" type="radio" value="0" checked>普通活动
+		&nbsp;&nbsp;&nbsp;
+		<input class="specialDeal" disabled="disabled" id="deal_special_deal_type_2" name="deal[special_deal_type]" style="display:inline;" type="radio" value="2">限时抢活动
+		&nbsp;&nbsp;&nbsp;
+		<input class="specialDeal" disabled="disabled" id="deal_special_deal_type_1" name="deal[special_deal_type]" style="display:inline;" type="radio" value="1">一元抢活动
+		&nbsp;&nbsp;&nbsp;
+		<input class="specialDeal" id="deal_special_deal_type_3" name="deal[special_deal_type]" style="display:inline;" type="radio" value="3">拍下立减活动
+		&nbsp;&nbsp;&nbsp;
+		<input class="specialDeal" id="deal_special_deal_type_4" name="deal[special_deal_type]" style="display:inline;" type="radio" value="4">秒杀活动
+		<small>(请不要随意修改)</small>
+	</span>
+</div>
+<div class="row-fluid offset1">
+	<div class="span2 title">是否参加拼团：</div>
+	<span id="pintuan" disabled="true">
+		<input id="isPintuan" name="deal_info[is_pintuan]" type="radio" value="1">是
+		&nbsp;&nbsp;&nbsp;
+		<input checked="checked" id="notPintuan" name="deal_info[is_pintuan]" type="radio" value="0">否
+	</span>
+</div>
+<div class="row-fluid offset1">
+	<span class="span2 title">首页及分类页是否展示：</span>
+	<input checked="checked" id="deal_show_on_ju_home_1" name="deal[show_on_ju_home]" type="radio" value="1">是
+	<input id="deal_show_on_ju_home_0" name="deal[show_on_ju_home]" type="radio" value="0">否
+	<small>(若选择否，则该商品不会在折800首页及分类页（含翻页）展示，主要用于控制品牌团商品)</small><br>
+</div>
+<div class="row-fluid offset1">
+	<span class="span2 title" style="color:red;">权重值：</span>
+	<input class="span1" id="deal_priority" name="deal[priority]" size="30" type="text">
+	&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://admin.zhe800.com/admin/help_center/140" target="_blank">日常权重</a>
+</div>
+	<input id="deal_deal_source" name="deal[deal_source]" type="hidden" value="1">
+<div class="row-fluid offset1" id="direction_item_div">
+	<span class="span2 title" style="color:red;">展示渠道:</span>
+	<input class="direction_class" id="direction_1" name="direction_array[]" type="checkbox" value="1">
+	全部
+	<input checked="checked" class="direction_class" id="direction_2" name="direction_array[]" type="checkbox" value="2">
+	主站
+	<input class="direction_class" id="direction_3" name="direction_array[]" type="checkbox" value="3">
+	U站
+	<input checked="checked" class="direction_class" id="direction_4" name="direction_array[]" type="checkbox" value="4">
+	无线
+	<input class="direction_class" id="direction_6" name="direction_array[]" type="checkbox" value="6">
+	多人团
+	<input class="direction_class" id="direction_10" name="direction_array[]" type="checkbox" value="10">
+	春节卡券
+	<span class="direction_second" style="">
+		(<input class="direction_second_all" id="direction_second_all" name="direction_array[]" type="checkbox" value="0" checked="checked">
+		<span style="margin-right: 10px">全部</span>
+		<input class="direction_second_class" name="direction_array[]" type="checkbox" value="9" checked="checked">
+		<span>校园专供</span>
+		)
+	</span>
+</div>
+<input id="deal_direction" name="deal[direction]" type="hidden" value="2,9">
+<div class="row-fluid offset1">
+	<span class="span2 title" style="color:red;">OEM特供：</span>
+	<input id="deal_oem_deal_special" name="deal[oem_deal_special]" type="hidden" value="0">
+	<input id="oem_deal_special_ckbox" name="oem_deal_special_ckbox" type="checkbox" value="0">
+	<input disabled="disabled" id="oem_deal_special_hao123_hao123" name="oem_deal_special_hao123" type="radio" value="hao123"> 
+	hao123
+</div>
+</body>
+<script src="../js/jquery.min.js"></script>
+<script>
+	$(document).on("click" ,function(){
+		var check_first = $("#set_special_radio").find("input[type=radio]:checked").val();
+		var ckeck_second = $("#pintuan").find("input[type=radio]:checked").val();
+		console.log(check_first);
+		console.log(ckeck_second);
+		if(check_first == 0){
+			$("#pintuan").find("input[type=radio]").prop("disabled",false);
+		}else{
+			$("#notPintuan").prop("checked" ,true);
+			$("#pintuan").find("input[type=radio]").prop("disabled","disabled");
+		}
+		if(ckeck_second == 1){
+			$("#direction_item_div").find("input[type=checkbox]").attr("checked",false);
+			$("#direction_3").prop("checked" ,true);
+			$("#direction_item_div").find("input[type=checkbox]").prop("disabled",true);
+		}
+		else{
+			$("#direction_item_div").find("input[type=checkbox]").prop("disabled",false);
+		}
+	})
+</script>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>柱状图</title>
+	<style>
+		.progress_bar_father{
+			width: 202px;
+			height: 202px;
+			border:2px solid #0C0;
+			border-radius: 300px;
+			position: relative;
+		}
+		.progress_bar{
+			width: 200px;
+			height:200px;
+			margin:0 auto;
+			margin-top: 15%;
+			margin-left: 1px;
+			overflow: hidden;
+			position: absolute;
+			bottom: 1px;
+		}
+		.progress_bar_in{
+			width: 200px;
+			height:200px;
+			background-image: url(sea.png);
+			background-repeat: repeat-x;
+			background-size: 100% 100px;
+			background-position: 0px bottom;
+			border-radius: 100px;
+			overflow: hidden;
+			position: absolute;
+			bottom: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1" class="progress_bar_father">
+		<div id="div2" class="progress_bar">
+			<div id="div3" class="progress_bar_in" progress="100"></div>
+		</div>
+	</div>
+</body>
+<script>
+	window.onload = function(){
+		var oDiv1 = document.getElementById('div1');
+		var oDiv2 = document.getElementById('div2');
+		var oDiv3 = document.getElementById('div3');
+		var progress = oDiv3.getAttribute("progress");
+		var waterHeight = (oDiv3.offsetHeight) / 100 * progress;
+		var timer = null;
+		var i = 0;
+		var j = 0;
+		var speed = 2;
+		var btn = true;
+		timer = setInterval(function(){
+			i=i+speed;
+			oDiv3.style.backgroundPosition = i + 'px bottom';
+			oDiv3.style.backgroundSize = '100% '+ j + 'px';
+			if(j<waterHeight&&btn){
+				j+=2;
+			}else if((!btn)&&(j>=waterHeight)){
+				btn=false;
+				j-=0.5;
+			}else if((j<waterHeight+20)&&btn){
+				j+=1;
+			}else if((j>=waterHeight+20)&&btn){
+				btn=false;
+			}
+			document.title = j
+		},30);
+		setTimeout(function(){
+			clearInterval(timer);
+		},500000)
+	}
+</script>
+</html>

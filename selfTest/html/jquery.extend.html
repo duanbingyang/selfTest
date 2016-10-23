@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="misapplication-tap-highlight" content="no"/>
+    <meta name="HandheldFriendly" content="true"/>
+	<title>jquery-Dclick</title>
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.extend.js"></script>
+</head>
+<body>
+	<input type="button" id = "Dclick" class = "Dclick" value="测试按钮" style="padding:20px;">
+	</input>
+	<script>
+	var fn = function(){alert(3)};
+	$("#Dclick").Dclick( fn );
+	//$("#Dclick").show();
+	</script>
+</body>
+</html>

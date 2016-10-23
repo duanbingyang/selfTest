@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>表单</title>
+<script src="../js/jquery.js"></script><!--测试时请先引入本地jq库-->
+</head>
+<body>
+<input type="text" id="inp" value="123">
+</body>
+<script>
+	// var inpval_before;
+	// $("#inp").keyup(function(){
+	// 	var inp = $('#inp');
+	// 	var inpVal = inp.val();
+	// 	if(!inpVal){
+	// 		inpval_before = inpVal;
+	// 	}else if(!(/^[0-9]*[1-9][0-9]*$/.test(inpVal))){
+	// 		$(this).val(inpval_before);
+
+	// 	}else{
+	// 		inpval_before = inpVal;
+	// 	}
+	// })
+
+
+	window.asd = 234234234;
+	$("#inp").bind('input propertychange', function clearNoNum(obj){
+		var value = $(this).val().replace(/\D/g,"").replace(/^0+/,"");
+		$(this).val( value );
+	});
+</script>
+</html>
